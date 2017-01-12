@@ -1,0 +1,98 @@
+To start I downloaded the OpenMP zip file and extracted the contents using the following command:
+> tar -xvf openmplab.tgz
+
+I then compiled the file normally and ran the executable using the following commands to see how fast the sequential version of the program runs:
+> make seq
+> ./seq
+
+This gave the following output which tells us how long it takes for the function and the overall program to run:
+FUNC TIME : 0.485806
+TOTAL TIME : 2.520430
+
+Now I compiled the program again with GPROF so I could see where the function could be improved to run faster:
+> make seq GPROF=1
+> ./seq 
+
+I can then use the following command to view the profile:
+> gprof seq
+
+This resulted in an output of:
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 62.15      0.36     0.36       15    24.03    26.06  func1
+ 27.62      0.52     0.16  5177344     0.00     0.00  rand2
+  3.45      0.54     0.02                             sequence
+  1.73      0.55     0.01   491520     0.00     0.00  findIndexBin
+  1.73      0.56     0.01       15     0.67     0.67  func2
+  1.73      0.57     0.01       15     0.67     1.34  func5
+  1.73      0.58     0.01        1    10.01    10.01  imdilateDisk
+  0.00      0.58     0.00   983042     0.00     0.00  round
+  0.00      0.58     0.00       16     0.00     0.00  dilateMatrix
+  0.00      0.58     0.00       15     0.00     0.00  func3
+  0.00      0.58     0.00       15     0.00     0.00  func4
+  0.00      0.58     0.00       15     0.00     0.00  rand1
+  0.00      0.58     0.00        2     0.00     0.00  get_time
+  0.00      0.58     0.00        1     0.00   129.80  addSeed
+  0.00      0.58     0.00        1     0.00     0.00  elapsed_time
+  0.00      0.58     0.00        1     0.00     0.00  fillMatrix
+  0.00      0.58     0.00        1     0.00     0.00  func0
+  0.00      0.58     0.00        1     0.00     0.00  getNeighbors
+
+This profile showed that func1 takes the most significant amount of time to run. Now I can start to optimize func.c. I started by trying to parallelize 
+all the for loops in all the functions by adding 
+#pragma omp parallel for private(i)
+before each loop. I then noticed that in func2, sumWeights was being used as an accumulator so just making it private would not work. I chose to use the 
+reduction option with addition so the multiple threads would not mismanage the value. I used the same reduction option with addition in func3 with 
+estimate_x and estimate_y, which are also used as accumulators. 
+
+After parallelizing the code, I checked that the output was still correct by using 
+> make check
+
+The output indicated that there were no differences between correct.txt and output.txt so the output of the parallel program is correct.
+
+The parallel version of the program is much faster as demonstrated when I compile the program with omp using:
+> make omp
+> ./omp
+
+This resulted in an output of:
+FUNC TIME : 0.037447
+TOTAL TIME : 1.990514
+which shows that the func part of the program was sped up over 10x.
+
+Now I recompiled the program again with GPROF so I could see where the program was spending most of its time running
+> make omp GPROF=1
+> ./omp 
+
+I can then use the following command to view the profile:
+> gprof omp
+
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 60.67      0.40     0.40                             filter
+ 31.85      0.61     0.21  4223442     0.00     0.00  rand2
+  3.03      0.63     0.02    11208     0.00     0.00  findIndexBin
+  3.03      0.65     0.02                             sequence
+  1.52      0.66     0.01        1    10.01    10.01  imdilateDisk
+  0.00      0.66     0.00    47141     0.00     0.00  round
+  0.00      0.66     0.00       16     0.00     0.00  dilateMatrix
+  0.00      0.66     0.00       15     0.00     0.00  func1
+  0.00      0.66     0.00       15     0.00     0.00  func2
+  0.00      0.66     0.00       15     0.00     0.00  func3
+  0.00      0.66     0.00       15     0.00     0.00  func4
+  0.00      0.66     0.00       15     0.00     0.00  func5
+  0.00      0.66     0.00       15     0.00     0.00  rand1
+  0.00      0.66     0.00        2     0.00     0.00  get_time
+  0.00      0.66     0.00        1     0.00   208.77  addSeed
+  0.00      0.66     0.00        1     0.00     0.00  elapsed_time
+  0.00      0.66     0.00        1     0.00     0.00  fillMatrix
+  0.00      0.66     0.00        1     0.00     0.00  func0
+  0.00      0.66     0.00        1     0.00     0.00  getNeighbors
+
+The profile shows that func1 no longer takes up most of the time of the program. In fact all the functions run very quickly and take up insignificant time. 
+I found that on average, the parallel version of the program ran around 10x faster than the sequential version. 

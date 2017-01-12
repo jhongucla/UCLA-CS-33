@@ -1,0 +1,6 @@
+3.60
+A)x is held in %r8. n is held in %ecx. result is held in %eax. mask is held in %edx.
+B)result is 0. mask is 1.
+C)mask != 0
+D)mask = mask << n
+E)result |= mask & x

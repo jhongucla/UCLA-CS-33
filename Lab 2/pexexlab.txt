@@ -1,0 +1,33 @@
+Gathering Instruction Traces:
+
+I used the following commands to open GDB and the emacs executable and multiply the numbers:
+
+gdb —-args ~eggert/bin64/bin/emacs-24.5 -batch -eval '(print (* 6997 -4398042316799 179))'
+(gdb) set disassemble-next-line on
+(gdb) break Ftimes
+(gdb) set logging on
+(gdb) run
+
+To step through each line of assembly code I used the following command:
+
+(gdb) stepi
+
+To see the values stored in each register and how they changed, I used the following command:
+
+(gdb) info registers
+
+For each group of lines of assembly code that corresponded to a line of source code, I could see the source file and the line number. For each line of assembly code, I could see the machine address of the instruction as well as the offset from the current function. The formatting that this information is displayed in is different from the format required, so it needed to be manually rearranged in the trace file. 
+
+For each line of assembly code, the machine instruction is displayed along with the operands so I can directly record that into the trace file. By looking at the values stored in each register and how they change in between lines of assembly code, I can decipher the effect on memory and the registers and record this in the trace file. 
+
+Examine Integer Overflow Handling:
+
+I started by creating three files named differently with identical code. These files were named ovf.c, ovff.c, and ovfw.c.
+
+I then used the following commands to compile the .c files into assembly code:
+
+gcc -O2 -S ovf.c
+gcc -O2 -S -fsanitize=undefined ovff.c
+gcc -O2 -S -fwrapv ovfw.c
+
+Then I compared the assembly code in the generated .s files.

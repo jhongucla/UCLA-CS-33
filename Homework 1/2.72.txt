@@ -1,0 +1,3 @@
+A. The conditional test in the code always succeeds because the sizeof operator return a value of type size_t, which is unsigned. Thus the entire expression is evaluated as unsigned, which always results in a value greater than or equal to 0.
+B. The conditional test could be rewritten as 
+if (maxbytes >= sizeof(val))

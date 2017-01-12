@@ -1,0 +1,5 @@
+A. No, it does not always yield 1. For example, if x = TMin, y = -1, then x<y, but -x>-y is not true.
+B. Yes, it always yields 1. The shift operation on x and y is the equivalent of multiplying both by 2^4 or 16. Adding y and subtracting x yields the right hand side.
+C. Yes, it always yields 1. Since -x=~x+1, ~x=-x-1. Therefore ~x+~y+1=-x-y-1=-(x+y)-1=~(x+y).
+D. Yes, it always yields 1. The bit patterns for unsigned and signed addition are identical.
+E. Yes, it always yields 1. If a logical right shift followed by a left shift is performed, the number is unchanged. If an arithmetic shift is performed, the value decreases. 

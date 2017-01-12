@@ -1,0 +1,10 @@
+2.89
+A. (float) x == (float) dx always yields 1 because the process of casting to float could cause rounding, but if rounding is necessary, both x and dx would be rounded in the same fashion and yield the same values. This is not affected by -fwrapv.
+
+B. dx-dy == (double) (x-y) does not always yield 1. Integer overflow could occur on the right hand side before casting, but not on the left hand side because double has much greater range than int. Let x=0 and y=TMIN and the expression would yield 0. This is not affected by -fwrapv.
+
+C. (dx+dy)+dz == dx+(dy+dz) always yields 1 because since the value of each ranges between TMIN and TMAX, double has enough range to represent the sum exactly. This is not affected by -fwrapv.
+
+D. (dx*dy)*dz == dx*(dy*dz) does not always yield 1. Unpredictable overflow that differs between the two sides could occur because of the different order of association. If dx=TMAX, dy=TMAX-1, and dz=TMAX-2, then the expression yields 0. If we enable -fwrapv, the expression yields 1 because overflow is allowed and predictable and therefore both sides would yield the same value even in the case of overflow.
+
+E. dx/dx == dz/dz does not always yield 1. Dividing by zero would allow the sides to differ. If dx=0.0 and dz=1.0 then the expression yields 0. This is not affected by -fwrapv.

@@ -1,0 +1,1034 @@
+21542 execve("./treethread", ["./treethread", "3"], [/* 32 vars */]) = 0
+21542 brk(0)                            = 0x9ee000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d264d000
+21542 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+21542 open("/usr/local/cs/lib64/tls/x86_64/libasan.so.3", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 stat("/usr/local/cs/lib64/tls/x86_64", 0x7ffd03674840) = -1 ENOENT (No such file or directory)
+21542 open("/usr/local/cs/lib64/tls/libasan.so.3", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 stat("/usr/local/cs/lib64/tls", 0x7ffd03674840) = -1 ENOENT (No such file or directory)
+21542 open("/usr/local/cs/lib64/x86_64/libasan.so.3", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 stat("/usr/local/cs/lib64/x86_64", 0x7ffd03674840) = -1 ENOENT (No such file or directory)
+21542 open("/usr/local/cs/lib64/libasan.so.3", O_RDONLY|O_CLOEXEC) = 3
+21542 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\20\362\1\0\0\0\0\0"..., 832) = 832
+21542 fstat(3, {st_mode=S_IFREG|0755, st_size=9060295, ...}) = 0
+21542 mmap(NULL, 16363216, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff1d1492000
+21542 mprotect(0x7ff1d15b6000, 2093056, PROT_NONE) = 0
+21542 mmap(0x7ff1d17b5000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x123000) = 0x7ff1d17b5000
+21542 mmap(0x7ff1d17bb000, 13049552, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ff1d17bb000
+21542 close(3)                          = 0
+21542 open("/usr/local/cs/lib64/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+21542 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \254\10\0\0\0\0\0"..., 832) = 832
+21542 fstat(3, {st_mode=S_IFREG|0755, st_size=11392954, ...}) = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d264c000
+21542 mmap(NULL, 3670816, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff1d1111000
+21542 mprotect(0x7ff1d1282000, 2097152, PROT_NONE) = 0
+21542 mmap(0x7ff1d1482000, 49152, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x171000) = 0x7ff1d1482000
+21542 mmap(0x7ff1d148e000, 13088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ff1d148e000
+21542 close(3)                          = 0
+21542 open("/usr/local/cs/lib64/libm.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+21542 fstat(3, {st_mode=S_IFREG|0644, st_size=147187, ...}) = 0
+21542 mmap(NULL, 147187, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff1d2628000
+21542 close(3)                          = 0
+21542 open("/lib64/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+21542 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\260T\0\0\0\0\0\0"..., 832) = 832
+21542 fstat(3, {st_mode=S_IFREG|0755, st_size=1141560, ...}) = 0
+21542 mmap(NULL, 3150168, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff1d0e0f000
+21542 mprotect(0x7ff1d0f10000, 2093056, PROT_NONE) = 0
+21542 mmap(0x7ff1d110f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x100000) = 0x7ff1d110f000
+21542 close(3)                          = 0
+21542 open("/usr/local/cs/lib64/libubsan.so.0", O_RDONLY|O_CLOEXEC) = 3
+21542 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\340U\0\0\0\0\0\0"..., 832) = 832
+21542 fstat(3, {st_mode=S_IFREG|0755, st_size=2086181, ...}) = 0
+21542 mmap(NULL, 13722192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff1d00f8000
+21542 mprotect(0x7ff1d0139000, 2093056, PROT_NONE) = 0
+21542 mmap(0x7ff1d0338000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x40000) = 0x7ff1d0338000
+21542 mmap(0x7ff1d033d000, 11342416, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ff1d033d000
+21542 close(3)                          = 0
+21542 open("/usr/local/cs/lib64/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+21542 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0`*\0\0\0\0\0\0"..., 832) = 832
+21542 fstat(3, {st_mode=S_IFREG|0644, st_size=724502, ...}) = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2627000
+21542 mmap(NULL, 2188368, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff1cfee1000
+21542 mprotect(0x7ff1cfef7000, 2093056, PROT_NONE) = 0
+21542 mmap(0x7ff1d00f6000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x15000) = 0x7ff1d00f6000
+21542 close(3)                          = 0
+21542 open("/usr/local/cs/lib64/libc.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 open("/lib64/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+21542 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \34\2\0\0\0\0\0"..., 832) = 832
+21542 fstat(3, {st_mode=S_IFREG|0755, st_size=2112384, ...}) = 0
+21542 mmap(NULL, 3936832, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff1cfb1f000
+21542 mprotect(0x7ff1cfcd6000, 2097152, PROT_NONE) = 0
+21542 mmap(0x7ff1cfed6000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b7000) = 0x7ff1cfed6000
+21542 mmap(0x7ff1cfedc000, 16960, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ff1cfedc000
+21542 close(3)                          = 0
+21542 open("/usr/local/cs/gcc-6.2.0/lib/../lib64/tls/x86_64/libdl.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 stat("/usr/local/cs/gcc-6.2.0/lib/../lib64/tls/x86_64", 0x7ffd036745e0) = -1 ENOENT (No such file or directory)
+21542 open("/usr/local/cs/gcc-6.2.0/lib/../lib64/tls/libdl.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 stat("/usr/local/cs/gcc-6.2.0/lib/../lib64/tls", 0x7ffd036745e0) = -1 ENOENT (No such file or directory)
+21542 open("/usr/local/cs/gcc-6.2.0/lib/../lib64/x86_64/libdl.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 stat("/usr/local/cs/gcc-6.2.0/lib/../lib64/x86_64", 0x7ffd036745e0) = -1 ENOENT (No such file or directory)
+21542 open("/usr/local/cs/gcc-6.2.0/lib/../lib64/libdl.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 stat("/usr/local/cs/gcc-6.2.0/lib/../lib64", {st_mode=S_IFDIR|0755, st_size=8192, ...}) = 0
+21542 open("/usr/local/cs/lib64/libdl.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 open("/lib64/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+21542 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320\16\0\0\0\0\0\0"..., 832) = 832
+21542 fstat(3, {st_mode=S_IFREG|0755, st_size=19520, ...}) = 0
+21542 mmap(NULL, 2109744, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff1cf91b000
+21542 mprotect(0x7ff1cf91e000, 2093056, PROT_NONE) = 0
+21542 mmap(0x7ff1cfb1d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7ff1cfb1d000
+21542 close(3)                          = 0
+21542 open("/usr/local/cs/gcc-6.2.0/lib/../lib64/librt.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 open("/usr/local/cs/lib64/librt.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 open("/lib64/librt.so.1", O_RDONLY|O_CLOEXEC) = 3
+21542 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\300\"\0\0\0\0\0\0"..., 832) = 832
+21542 fstat(3, {st_mode=S_IFREG|0755, st_size=44096, ...}) = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2626000
+21542 mmap(NULL, 2128952, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff1cf713000
+21542 mprotect(0x7ff1cf71a000, 2093056, PROT_NONE) = 0
+21542 mmap(0x7ff1cf919000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x7ff1cf919000
+21542 close(3)                          = 0
+21542 open("/usr/local/cs/gcc-6.2.0/lib/../lib64/libpthread.so.0", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 open("/usr/local/cs/lib64/libpthread.so.0", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+21542 open("/lib64/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+21542 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\240l\0\0\0\0\0\0"..., 832) = 832
+21542 fstat(3, {st_mode=S_IFREG|0755, st_size=142304, ...}) = 0
+21542 mmap(NULL, 2208864, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff1cf4f7000
+21542 mprotect(0x7ff1cf50d000, 2097152, PROT_NONE) = 0
+21542 mmap(0x7ff1cf70d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x16000) = 0x7ff1cf70d000
+21542 mmap(0x7ff1cf70f000, 13408, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ff1cf70f000
+21542 close(3)                          = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2625000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2624000
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2622000
+21542 arch_prctl(ARCH_SET_FS, 0x7ff1d26227c0) = 0
+21542 mprotect(0x7ff1cfed6000, 16384, PROT_READ) = 0
+21542 mprotect(0x7ff1cf70d000, 4096, PROT_READ) = 0
+21542 mprotect(0x7ff1cf919000, 4096, PROT_READ) = 0
+21542 mprotect(0x7ff1cfb1d000, 4096, PROT_READ) = 0
+21542 mprotect(0x7ff1d00f6000, 4096, PROT_READ) = 0
+21542 mprotect(0x7ff1d110f000, 4096, PROT_READ) = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2621000
+21542 mprotect(0x7ff1d1482000, 40960, PROT_READ) = 0
+21542 mprotect(0x7ff1d0338000, 8192, PROT_READ) = 0
+21542 mprotect(0x7ff1d17b5000, 12288, PROT_READ) = 0
+21542 mprotect(0x601000, 4096, PROT_READ) = 0
+21542 mprotect(0x7ff1d264e000, 4096, PROT_READ) = 0
+21542 munmap(0x7ff1d2628000, 147187)    = 0
+21542 set_tid_address(0x7ff1d2622a90)   = 21542
+21542 set_robust_list(0x7ff1d2622aa0, 24) = 0
+21542 rt_sigaction(SIGRTMIN, {0x7ff1cf4fd780, [], SA_RESTORER|SA_SIGINFO, 0x7ff1cf506100}, NULL, 8) = 0
+21542 rt_sigaction(SIGRT_1, {0x7ff1cf4fd810, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7ff1cf506100}, NULL, 8) = 0
+21542 rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+21542 getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+21542 readlink("/proc/self/exe", "/w/home.08/cs/ugrad/jianan/Deskt"..., 4096) = 45
+21542 open("/proc/self/cmdline", O_RDONLY) = 3
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d264b000
+21542 read(3, "./treethread\0003\0", 4096) = 15
+21542 close(3)                          = 0
+21542 open("/proc/self/cmdline", O_RDONLY) = 3
+21542 munmap(0x7ff1d264b000, 4096)      = 0
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d264a000
+21542 read(3, "./treethread\0003\0", 4096) = 15
+21542 read(3, "", 4096)                 = 0
+21542 close(3)                          = 0
+21542 munmap(0x7ff1d264a000, 8192)      = 0
+21542 open("/proc/self/environ", O_RDONLY) = 3
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d264b000
+21542 read(3, "XDG_SESSION_ID=33091\0HOSTNAME=ln"..., 4096) = 2709
+21542 close(3)                          = 0
+21542 open("/proc/self/environ", O_RDONLY) = 3
+21542 munmap(0x7ff1d264b000, 4096)      = 0
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d264a000
+21542 read(3, "XDG_SESSION_ID=33091\0HOSTNAME=ln"..., 4096) = 2709
+21542 read(3, "", 4096)                 = 0
+21542 close(3)                          = 0
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2648000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2647000
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2645000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2644000
+21542 mmap(NULL, 3481600, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1cf1a5000
+21542 futex(0x7ff1cfb1e0d0, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+21542 stat("/etc/sysconfig/64bit_strstr_via_64bit_strstr_sse2_unaligned", 0x7ffd03674d90) = -1 ENOENT (No such file or directory)
+21542 stat("/etc/sysconfig/64bit_strstr_via_64bit_strstr_sse2_unaligned", 0x7ffd03674d90) = -1 ENOENT (No such file or directory)
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2643000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4018
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 munmap(0x7ff1d2643000, 4096)      = 0
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2642000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4018
+21542 read(3, "7ff1d1492000-7ff1d15b6000 r-xp 0"..., 4096) = 1206
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 munmap(0x7ff1d2642000, 8192)      = 0
+21542 mmap(NULL, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4018
+21542 read(3, "7ff1d1492000-7ff1d15b6000 r-xp 0"..., 4096) = 1206
+21542 read(3, "", 4096)                 = 0
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d263f000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4018
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 munmap(0x7ff1d263f000, 4096)      = 0
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d263e000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4018
+21542 read(3, "7ff1d1492000-7ff1d15b6000 r-xp 0"..., 4096) = 1206
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 munmap(0x7ff1d263e000, 8192)      = 0
+21542 mmap(NULL, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d263c000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4018
+21542 read(3, "7ff1d1492000-7ff1d15b6000 r-xp 0"..., 4096) = 1206
+21542 read(3, "", 4096)                 = 0
+21542 close(3)                          = 0
+21542 munmap(0x7ff1d2640000, 16384)     = 0
+21542 setrlimit(RLIMIT_CORE, {rlim_cur=0, rlim_max=0}) = 0
+21542 mmap(0x7fff7000, 268435456, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7fff7000
+21542 madvise(0x7fff7000, 268435456, MADV_NOHUGEPAGE) = 0
+21542 madvise(0x7fff7000, 268435456, MADV_DONTDUMP) = 0
+21542 mmap(0x2008fff7000, 15392894357504, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x2008fff7000
+21542 madvise(0x2008fff7000, 15392894357504, MADV_NOHUGEPAGE) = 0
+21542 madvise(0x2008fff7000, 15392894357504, MADV_DONTDUMP) = 0
+21542 mmap(0x8fff7000, 2199023255552, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x8fff7000
+21542 sigaltstack(NULL, {ss_sp=0, ss_flags=SS_DISABLE, ss_size=0}) = 0
+21542 mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2634000
+21542 sigaltstack({ss_sp=0x7ff1d2634000, ss_flags=0, ss_size=32768}, NULL) = 0
+21542 rt_sigaction(SIGSEGV, {0x7ff1d1557600, [], SA_RESTORER|SA_STACK|SA_NODEFER|SA_SIGINFO, 0x7ff1cfb54670}, NULL, 8) = 0
+21542 rt_sigaction(SIGBUS, {0x7ff1d1557600, [], SA_RESTORER|SA_STACK|SA_NODEFER|SA_SIGINFO, 0x7ff1cfb54670}, NULL, 8) = 0
+21542 rt_sigaction(SIGFPE, {0x7ff1d1557600, [], SA_RESTORER|SA_STACK|SA_NODEFER|SA_SIGINFO, 0x7ff1cfb54670}, NULL, 8) = 0
+21542 mmap(0x600000000000, 4398046511104, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x600000000000
+21542 mmap(0x640000000000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x640000000000
+21542 mmap(NULL, 110592, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2606000
+21542 mmap(NULL, 33554432, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1cd1a5000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2643000
+21542 getpid()                          = 21542
+21542 getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2642000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4077
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 munmap(0x7ff1d2642000, 4096)      = 0
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2641000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4077
+21542 read(3, "7ff1d148c000-7ff1d148e000 rw-p 0"..., 4096) = 1427
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 munmap(0x7ff1d2641000, 8192)      = 0
+21542 mmap(NULL, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2630000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4077
+21542 read(3, "7ff1d148c000-7ff1d148e000 rw-p 0"..., 4096) = 1427
+21542 read(3, "", 4096)                 = 0
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2642000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4077
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 munmap(0x7ff1d2642000, 4096)      = 0
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2641000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4077
+21542 read(3, "7ff1d148c000-7ff1d148e000 rw-p 0"..., 4096) = 1427
+21542 close(3)                          = 0
+21542 open("/proc/self/maps", O_RDONLY) = 3
+21542 munmap(0x7ff1d2641000, 8192)      = 0
+21542 mmap(NULL, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d262c000
+21542 read(3, "00400000-00402000 r-xp 00000000 "..., 4096) = 4077
+21542 read(3, "7ff1d148c000-7ff1d148e000 rw-p 0"..., 4096) = 1427
+21542 read(3, "", 4096)                 = 0
+21542 close(3)                          = 0
+21542 munmap(0x7ff1d263c000, 16384)     = 0
+21542 munmap(0x7ff1d2630000, 16384)     = 0
+21542 mmap(0x1000205c7000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x1000205c7000
+21542 madvise(0x1000205c7000, 1044480, MADV_NOHUGEPAGE) = 0
+21542 madvise(0x1000205c7000, 1044480, MADV_DONTDUMP) = 0
+21542 sigaltstack(NULL, {ss_sp=0x7ff1d2634000, ss_flags=0, ss_size=32768}) = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2642000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2641000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 mmap(NULL, 2097152, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1ccfa5000
+21542 munmap(0x7ff1ccfa5000, 372736)    = 0
+21542 munmap(0x7ff1cd100000, 675840)    = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d263f000
+21542 mmap(NULL, 2097152, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1cce00000
+21542 munmap(0x7ff1ccf00000, 1048576)   = 0
+21542 munmap(0x7ff1d2640000, 4096)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2640000
+21542 mmap(0x631000000000, 196608, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x631000000000
+21542 mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d25f6000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d263e000
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d263c000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2633000
+21542 open("/proc/self/environ", O_RDONLY) = 3
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2632000
+21542 read(3, "XDG_SESSION_ID=33091\0HOSTNAME=ln"..., 4096) = 2709
+21542 close(3)                          = 0
+21542 open("/proc/self/environ", O_RDONLY) = 3
+21542 munmap(0x7ff1d2632000, 4096)      = 0
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2631000
+21542 read(3, "XDG_SESSION_ID=33091\0HOSTNAME=ln"..., 4096) = 2709
+21542 read(3, "", 4096)                 = 0
+21542 close(3)                          = 0
+21542 readlink("/proc/self/exe", "/w/home.08/cs/ugrad/jianan/Deskt"..., 4096) = 45
+21542 open("/proc/self/cmdline", O_RDONLY) = 3
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2630000
+21542 read(3, "./treethread\0003\0", 4096) = 15
+21542 close(3)                          = 0
+21542 open("/proc/self/cmdline", O_RDONLY) = 3
+21542 munmap(0x7ff1d2630000, 4096)      = 0
+21542 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d262a000
+21542 read(3, "./treethread\0003\0", 4096) = 15
+21542 read(3, "", 4096)                 = 0
+21542 close(3)                          = 0
+21542 munmap(0x7ff1d262a000, 8192)      = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2630000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d262b000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d262a000
+21542 gettid()                          = 21542
+21542 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7ff1cc5ff000
+21542 mmap(0x616000000000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x616000000000
+21542 mprotect(0x7ff1cc5ff000, 4096, PROT_NONE) = 0
+21542 clone(child_stack=0x7ff1ccdfef30, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7ff1ccdff9d0, tls=0x7ff1ccdff700, child_tidptr=0x7ff1ccdff9d0) = 21543
+21543 set_robust_list(0x7ff1ccdff9e0, 24 <unfinished ...>
+21542 mmap(NULL, 110592, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21543 <... set_robust_list resumed> )   = 0
+21542 <... mmap resumed> )              = 0x7ff1d25db000
+21543 sched_yield( <unfinished ...>
+21542 sched_yield( <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21542 <... sched_yield resumed> )       = 0
+21543 gettid( <unfinished ...>
+21542 sched_yield( <unfinished ...>
+21543 <... gettid resumed> )            = 21543
+21542 <... sched_yield resumed> )       = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield( <unfinished ...>
+21543 mmap(0x603000000000, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21543 <... mmap resumed> )              = 0x603000000000
+21542 sched_yield()                     = 0
+21543 mmap(0x619000000000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21542 sched_yield( <unfinished ...>
+21543 <... mmap resumed> )              = 0x619000000000
+21542 <... sched_yield resumed> )       = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield( <unfinished ...>
+21543 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21543 <... mmap resumed> )              = 0x7ff1d2629000
+21542 sched_yield( <unfinished ...>
+21543 sched_getaffinity(21543, 32,  <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21543 <... sched_getaffinity resumed> {ffffffff, 0, 0, 0}) = 32
+21542 sched_yield()                     = 0
+21543 mmap(0x624000000000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21542 sched_yield( <unfinished ...>
+21543 <... mmap resumed> )              = 0x624000000000
+21542 <... sched_yield resumed> )       = 0
+21542 sched_yield()                     = 0
+21543 mmap(0xffeb98b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21542 sched_yield()                     = 0
+21543 <... mmap resumed> )              = 0xffeb98b8000
+21542 sched_yield( <unfinished ...>
+21543 madvise(0xffeb98b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21543 <... madvise resumed> )           = 0
+21542 sched_yield( <unfinished ...>
+21543 madvise(0xffeb98b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21543 <... madvise resumed> )           = 0
+21542 sched_yield( <unfinished ...>
+21543 sigaltstack(NULL <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21543 <... sigaltstack resumed> , {ss_sp=0, ss_flags=SS_DISABLE, ss_size=0}) = 0
+21542 gettid( <unfinished ...>
+21543 mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21542 <... gettid resumed> )            = 21542
+21543 <... mmap resumed> )              = 0x7ff1d25d3000
+21542 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+21543 sigaltstack({ss_sp=0x7ff1d25d3000, ss_flags=0, ss_size=32768}, NULL) = 0
+21542 <... mmap resumed> )              = 0x7ff1cbdfe000
+21543 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7ff1cb5fd000
+21542 mprotect(0x7ff1cbdfe000, 4096, PROT_NONE <unfinished ...>
+21543 mmap(0x616000020000, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21542 <... mprotect resumed> )          = 0
+21543 <... mmap resumed> )              = 0x616000020000
+21542 clone( <unfinished ...>
+21543 mprotect(0x7ff1cb5fd000, 4096, PROT_NONE) = 0
+21544 set_robust_list(0x7ff1cc5fe9e0, 24 <unfinished ...>
+21542 <... clone resumed> child_stack=0x7ff1cc5fdf30, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7ff1cc5fe9d0, tls=0x7ff1cc5fe700, child_tidptr=0x7ff1cc5fe9d0) = 21544
+21544 <... set_robust_list resumed> )   = 0
+21543 clone( <unfinished ...>
+21542 mmap(NULL, 110592, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21544 sched_yield()                     = 0
+21542 <... mmap resumed> )              = 0x7ff1d25b8000
+21545 set_robust_list(0x7ff1cbdfd9e0, 24 <unfinished ...>
+21544 sched_yield( <unfinished ...>
+21543 <... clone resumed> child_stack=0x7ff1cbdfcf30, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7ff1cbdfd9d0, tls=0x7ff1cbdfd700, child_tidptr=0x7ff1cbdfd9d0) = 21545
+21545 <... set_robust_list resumed> )   = 0
+21544 <... sched_yield resumed> )       = 0
+21543 mmap(NULL, 110592, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21542 sched_yield( <unfinished ...>
+21545 sched_yield( <unfinished ...>
+21544 gettid( <unfinished ...>
+21543 <... mmap resumed> )              = 0x7ff1d259d000
+21542 <... sched_yield resumed> )       = 0
+21545 <... sched_yield resumed> )       = 0
+21544 <... gettid resumed> )            = 21544
+21543 sched_yield( <unfinished ...>
+21542 sched_yield( <unfinished ...>
+21545 gettid( <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21542 <... sched_yield resumed> )       = 0
+21545 <... gettid resumed> )            = 21545
+21543 sched_yield( <unfinished ...>
+21542 sched_yield( <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21543 sched_yield( <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21543 <... sched_yield resumed> )       = 0
+21542 sched_yield( <unfinished ...>
+21544 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21543 sched_yield( <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21545 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21544 <... mmap resumed> )              = 0x7ff1d2628000
+21543 <... sched_yield resumed> )       = 0
+21542 sched_yield( <unfinished ...>
+21545 <... mmap resumed> )              = 0x7ff1d259c000
+21544 sched_getaffinity(21544, 32,  <unfinished ...>
+21543 sched_yield( <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21545 sched_getaffinity(21545, 32,  <unfinished ...>
+21544 <... sched_getaffinity resumed> {ffffffff, 0, 0, 0}) = 32
+21543 <... sched_yield resumed> )       = 0
+21542 sched_yield( <unfinished ...>
+21545 <... sched_getaffinity resumed> {ffffffff, 0, 0, 0}) = 32
+21544 mmap(0x624000020000, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21543 sched_yield( <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21545 futex(0x640000001440, FUTEX_WAIT, 2, NULL <unfinished ...>
+21544 <... mmap resumed> )              = 0x624000020000
+21543 <... sched_yield resumed> )       = 0
+21542 sched_yield( <unfinished ...>
+21544 futex(0x640000001440, FUTEX_WAKE, 1 <unfinished ...>
+21543 sched_yield( <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21545 <... futex resumed> )             = 0
+21544 <... futex resumed> )             = 1
+21543 <... sched_yield resumed> )       = 0
+21542 sched_yield( <unfinished ...>
+21545 mmap(0x624000030000, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21543 sched_yield( <unfinished ...>
+21544 mmap(0xffeb97b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21542 <... sched_yield resumed> )       = 0
+21545 <... mmap resumed> )              = 0x624000030000
+21543 sched_yield( <unfinished ...>
+21544 <... mmap resumed> )              = 0xffeb97b8000
+21542 sched_yield( <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21544 madvise(0xffeb97b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21545 futex(0x640000001440, FUTEX_WAKE, 1 <unfinished ...>
+21542 <... sched_yield resumed> )       = 0
+21545 <... futex resumed> )             = 0
+21544 <... madvise resumed> )           = 0
+21543 sched_yield( <unfinished ...>
+21542 sched_yield( <unfinished ...>
+21544 madvise(0xffeb97b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21545 mmap(0xffeb96b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21542 <... sched_yield resumed> )       = 0
+21544 <... madvise resumed> )           = 0
+21545 <... mmap resumed> )              = 0xffeb96b8000
+21543 sched_yield( <unfinished ...>
+21542 sched_yield( <unfinished ...>
+21545 madvise(0xffeb96b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21544 sigaltstack(NULL <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21542 <... sched_yield resumed> )       = 0
+21545 <... madvise resumed> )           = 0
+21544 <... sigaltstack resumed> , {ss_sp=0, ss_flags=SS_DISABLE, ss_size=0}) = 0
+21543 sched_yield( <unfinished ...>
+21545 madvise(0xffeb96b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21544 mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21542 futex(0x7ff1ccdff9d0, FUTEX_WAIT, 21543, NULL <unfinished ...>
+21545 <... madvise resumed> )           = 0
+21544 <... mmap resumed> )              = 0x7ff1d2594000
+21543 sched_yield( <unfinished ...>
+21545 sigaltstack(NULL <unfinished ...>
+21544 sigaltstack({ss_sp=0x7ff1d2594000, ss_flags=0, ss_size=32768} <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21545 <... sigaltstack resumed> , {ss_sp=0, ss_flags=SS_DISABLE, ss_size=0}) = 0
+21544 <... sigaltstack resumed> , NULL) = 0
+21543 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+21545 mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21544 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+21543 <... mmap resumed> )              = 0x7ff1cadfc000
+21545 <... mmap resumed> )              = 0x7ff1d258c000
+21544 <... mmap resumed> )              = 0x7ff1ca5fb000
+21545 sigaltstack({ss_sp=0x7ff1d258c000, ss_flags=0, ss_size=32768} <unfinished ...>
+21543 mprotect(0x7ff1cadfc000, 4096, PROT_NONE <unfinished ...>
+21545 <... sigaltstack resumed> , NULL) = 0
+21545 fstat(1,  <unfinished ...>
+21544 mprotect(0x7ff1ca5fb000, 4096, PROT_NONE <unfinished ...>
+21543 <... mprotect resumed> )          = 0
+21545 <... fstat resumed> {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 15), ...}) = 0
+21544 <... mprotect resumed> )          = 0
+21545 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21543 clone( <unfinished ...>
+21544 clone( <unfinished ...>
+21545 <... mmap resumed> )              = 0x7ff1d258b000
+21546 set_robust_list(0x7ff1cb5fc9e0, 24 <unfinished ...>
+21545 write(1, "Hello, world\n", 13 <unfinished ...>
+21543 <... clone resumed> child_stack=0x7ff1cb5fbf30, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7ff1cb5fc9d0, tls=0x7ff1cb5fc700, child_tidptr=0x7ff1cb5fc9d0) = 21546
+21547 set_robust_list(0x7ff1cadfb9e0, 24 <unfinished ...>
+21546 <... set_robust_list resumed> )   = 0
+21545 <... write resumed> )             = 13
+21544 <... clone resumed> child_stack=0x7ff1cadfaf30, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7ff1cadfb9d0, tls=0x7ff1cadfb700, child_tidptr=0x7ff1cadfb9d0) = 21547
+21543 mmap(NULL, 110592, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21547 <... set_robust_list resumed> )   = 0
+21546 sched_yield( <unfinished ...>
+21545 sigaltstack({ss_sp=0, ss_flags=SS_DISABLE, ss_size=32768} <unfinished ...>
+21544 mmap(NULL, 110592, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21543 <... mmap resumed> )              = 0x7ff1d2570000
+21547 sched_yield( <unfinished ...>
+21546 <... sched_yield resumed> )       = 0
+21545 <... sigaltstack resumed> , {ss_sp=0x7ff1d258c000, ss_flags=0, ss_size=32768}) = 0
+21544 <... mmap resumed> )              = 0x7ff1d2555000
+21547 <... sched_yield resumed> )       = 0
+21546 gettid( <unfinished ...>
+21545 munmap(0x7ff1d258c000, 32768 <unfinished ...>
+21543 sched_yield( <unfinished ...>
+21547 gettid( <unfinished ...>
+21546 <... gettid resumed> )            = 21546
+21544 sched_yield( <unfinished ...>
+21545 <... munmap resumed> )            = 0
+21543 <... sched_yield resumed> )       = 0
+21547 <... gettid resumed> )            = 21547
+21545 mmap(0xffeb96b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21543 sched_yield( <unfinished ...>
+21544 sched_yield( <unfinished ...>
+21545 <... mmap resumed> )              = 0xffeb96b8000
+21544 <... sched_yield resumed> )       = 0
+21545 madvise(0xffeb96b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21544 sched_yield( <unfinished ...>
+21545 <... madvise resumed> )           = 0
+21544 <... sched_yield resumed> )       = 0
+21545 madvise(0xffeb96b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21544 sched_yield()                     = 0
+21545 <... madvise resumed> )           = 0
+21543 <... sched_yield resumed> )       = 0
+21545 munmap(0x7ff1d259d000, 110592 <unfinished ...>
+21544 sched_yield( <unfinished ...>
+21543 sched_yield( <unfinished ...>
+21547 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21545 <... munmap resumed> )            = 0
+21543 <... sched_yield resumed> )       = 0
+21547 <... mmap resumed> )              = 0x7ff1d25b7000
+21544 sched_yield( <unfinished ...>
+21546 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21545 munmap(0x7ff1d259c000, 4096 <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21543 sched_yield( <unfinished ...>
+21547 sched_getaffinity(21547, 32,  <unfinished ...>
+21546 <... mmap resumed> )              = 0x7ff1d25b6000
+21545 <... munmap resumed> )            = 0
+21544 sched_yield( <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21547 <... sched_getaffinity resumed> {ffffffff, 0, 0, 0}) = 32
+21546 sched_getaffinity(21546, 32,  <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21545 madvise(0x7ff1cb5fd000, 8368128, MADV_DONTNEED <unfinished ...>
+21543 sched_yield( <unfinished ...>
+21547 mmap(0xffeb94b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21546 <... sched_getaffinity resumed> {ffffffff, 0, 0, 0}) = 32
+21544 sched_yield( <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21547 <... mmap resumed> )              = 0xffeb94b8000
+21546 mmap(0x624000040000, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21545 <... madvise resumed> )           = 0
+21544 <... sched_yield resumed> )       = 0
+21543 sched_yield( <unfinished ...>
+21547 madvise(0xffeb94b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21546 <... mmap resumed> )              = 0x624000040000
+21545 _exit(0)                          = ?
+21544 sched_yield( <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21547 <... madvise resumed> )           = 0
+21544 <... sched_yield resumed> )       = 0
+21543 sched_yield( <unfinished ...>
+21547 madvise(0xffeb94b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21546 mmap(0xffeb95b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21545 +++ exited with 0 +++
+21544 sched_yield( <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21547 <... madvise resumed> )           = 0
+21546 <... mmap resumed> )              = 0xffeb95b8000
+21544 <... sched_yield resumed> )       = 0
+21543 sched_yield( <unfinished ...>
+21547 sigaltstack(NULL <unfinished ...>
+21546 madvise(0xffeb95b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21544 mmap(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21547 <... sigaltstack resumed> , {ss_sp=0, ss_flags=SS_DISABLE, ss_size=0}) = 0
+21546 <... madvise resumed> )           = 0
+21544 <... mmap resumed> )              = 0x7ff1c9dfa000
+21543 sched_yield( <unfinished ...>
+21547 mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21546 madvise(0xffeb95b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21543 <... sched_yield resumed> )       = 0
+21547 <... mmap resumed> )              = 0x7ff1d25ae000
+21546 <... madvise resumed> )           = 0
+21544 mprotect(0x7ff1c9dfa000, 4096, PROT_NONE <unfinished ...>
+21543 sched_yield( <unfinished ...>
+21547 sigaltstack({ss_sp=0x7ff1d25ae000, ss_flags=0, ss_size=32768} <unfinished ...>
+21546 sigaltstack(NULL <unfinished ...>
+21544 <... mprotect resumed> )          = 0
+21543 <... sched_yield resumed> )       = 0
+21547 <... sigaltstack resumed> , NULL) = 0
+21546 <... sigaltstack resumed> , {ss_sp=0, ss_flags=SS_DISABLE, ss_size=0}) = 0
+21544 clone( <unfinished ...>
+21547 write(1, "Hello, world\n", 13 <unfinished ...>
+21546 mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21543 futex(0x7ff1cb5fc9d0, FUTEX_WAIT, 21546, NULL <unfinished ...>
+21547 <... write resumed> )             = 13
+21546 <... mmap resumed> )              = 0x7ff1d25a6000
+21548 set_robust_list(0x7ff1ca5fa9e0, 24 <unfinished ...>
+21546 sigaltstack({ss_sp=0x7ff1d25a6000, ss_flags=0, ss_size=32768} <unfinished ...>
+21547 sigaltstack({ss_sp=0, ss_flags=SS_DISABLE, ss_size=32768} <unfinished ...>
+21544 <... clone resumed> child_stack=0x7ff1ca5f9f30, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7ff1ca5fa9d0, tls=0x7ff1ca5fa700, child_tidptr=0x7ff1ca5fa9d0) = 21548
+21548 <... set_robust_list resumed> )   = 0
+21547 <... sigaltstack resumed> , {ss_sp=0x7ff1d25ae000, ss_flags=0, ss_size=32768}) = 0
+21546 <... sigaltstack resumed> , NULL) = 0
+21544 mmap(NULL, 110592, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21548 sched_yield( <unfinished ...>
+21547 munmap(0x7ff1d25ae000, 32768 <unfinished ...>
+21546 write(1, "Hello, world\n", 13 <unfinished ...>
+21544 <... mmap resumed> )              = 0x7ff1d253a000
+21548 <... sched_yield resumed> )       = 0
+21547 <... munmap resumed> )            = 0
+21548 gettid( <unfinished ...>
+21546 <... write resumed> )             = 13
+21544 sched_yield( <unfinished ...>
+21548 <... gettid resumed> )            = 21548
+21547 mmap(0xffeb94b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21546 sigaltstack({ss_sp=0, ss_flags=SS_DISABLE, ss_size=32768} <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21546 <... sigaltstack resumed> , {ss_sp=0x7ff1d25a6000, ss_flags=0, ss_size=32768}) = 0
+21547 <... mmap resumed> )              = 0xffeb94b8000
+21546 munmap(0x7ff1d25a6000, 32768 <unfinished ...>
+21544 sched_yield( <unfinished ...>
+21547 madvise(0xffeb94b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21546 <... munmap resumed> )            = 0
+21544 sched_yield( <unfinished ...>
+21547 <... madvise resumed> )           = 0
+21546 mmap(0xffeb95b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21547 madvise(0xffeb94b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21544 sched_yield( <unfinished ...>
+21546 <... mmap resumed> )              = 0xffeb95b8000
+21544 <... sched_yield resumed> )       = 0
+21548 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21547 <... madvise resumed> )           = 0
+21546 madvise(0xffeb95b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21544 sched_yield( <unfinished ...>
+21548 <... mmap resumed> )              = 0x7ff1d25b5000
+21547 munmap(0x7ff1d2555000, 110592 <unfinished ...>
+21546 <... madvise resumed> )           = 0
+21544 <... sched_yield resumed> )       = 0
+21548 sched_getaffinity(21548, 32,  <unfinished ...>
+21546 madvise(0xffeb95b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21544 sched_yield( <unfinished ...>
+21548 <... sched_getaffinity resumed> {ffffffff, 0, 0, 0}) = 32
+21544 <... sched_yield resumed> )       = 0
+21547 <... munmap resumed> )            = 0
+21546 <... madvise resumed> )           = 0
+21544 sched_yield( <unfinished ...>
+21548 mmap(0xffeb93b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21547 munmap(0x7ff1d25b7000, 4096 <unfinished ...>
+21546 munmap(0x7ff1d2570000, 110592 <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21548 <... mmap resumed> )              = 0xffeb93b8000
+21547 <... munmap resumed> )            = 0
+21544 sched_yield( <unfinished ...>
+21548 madvise(0xffeb93b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21547 madvise(0x7ff1ca5fb000, 8368128, MADV_DONTNEED <unfinished ...>
+21546 <... munmap resumed> )            = 0
+21548 <... madvise resumed> )           = 0
+21544 sched_yield( <unfinished ...>
+21546 munmap(0x7ff1d25b6000, 4096 <unfinished ...>
+21548 madvise(0xffeb93b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21544 <... sched_yield resumed> )       = 0
+21544 sched_yield()                     = 0
+21544 sched_yield()                     = 0
+21544 sched_yield()                     = 0
+21544 sched_yield()                     = 0
+21544 sched_yield()                     = 0
+21544 sched_yield( <unfinished ...>
+21547 <... madvise resumed> )           = 0
+21546 <... munmap resumed> )            = 0
+21544 <... sched_yield resumed> )       = 0
+21548 <... madvise resumed> )           = 0
+21547 _exit(0)                          = ?
+21546 madvise(0x7ff1cadfc000, 8368128, MADV_DONTNEED <unfinished ...>
+21548 sigaltstack(NULL <unfinished ...>
+21544 sched_yield( <unfinished ...>
+21547 +++ exited with 0 +++
+21548 <... sigaltstack resumed> , {ss_sp=0, ss_flags=SS_DISABLE, ss_size=0}) = 0
+21546 <... madvise resumed> )           = 0
+21544 <... sched_yield resumed> )       = 0
+21548 mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+21546 _exit(0)                          = ?
+21544 futex(0x7ff1ca5fa9d0, FUTEX_WAIT, 21548, NULL <unfinished ...>
+21548 <... mmap resumed> )              = 0x7ff1d25ad000
+21546 +++ exited with 0 +++
+21548 sigaltstack({ss_sp=0x7ff1d25ad000, ss_flags=0, ss_size=32768}, NULL) = 0
+21543 <... futex resumed> )             = 0
+21548 write(1, "Hello, world\n", 13 <unfinished ...>
+21543 futex(0x7ff1cfedca10, FUTEX_WAIT_PRIVATE, 2, NULL <unfinished ...>
+21548 <... write resumed> )             = 13
+21548 futex(0x7ff1cfedca10, FUTEX_WAKE_PRIVATE, 1) = 1
+21543 <... futex resumed> )             = 0
+21548 sigaltstack({ss_sp=0, ss_flags=SS_DISABLE, ss_size=32768} <unfinished ...>
+21543 write(1, "Hello, world\n", 13 <unfinished ...>
+21548 <... sigaltstack resumed> , {ss_sp=0x7ff1d25ad000, ss_flags=0, ss_size=32768}) = 0
+21548 munmap(0x7ff1d25ad000, 32768 <unfinished ...>
+21543 <... write resumed> )             = 13
+21548 <... munmap resumed> )            = 0
+21543 futex(0x7ff1cfedca10, FUTEX_WAKE_PRIVATE, 1 <unfinished ...>
+21548 mmap(0xffeb93b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21543 <... futex resumed> )             = 0
+21548 <... mmap resumed> )              = 0xffeb93b8000
+21548 madvise(0xffeb93b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21543 sigaltstack({ss_sp=0, ss_flags=SS_DISABLE, ss_size=32768} <unfinished ...>
+21548 <... madvise resumed> )           = 0
+21543 <... sigaltstack resumed> , {ss_sp=0x7ff1d25d3000, ss_flags=0, ss_size=32768}) = 0
+21548 madvise(0xffeb93b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21543 munmap(0x7ff1d25d3000, 32768 <unfinished ...>
+21548 <... madvise resumed> )           = 0
+21548 munmap(0x7ff1d253a000, 110592 <unfinished ...>
+21543 <... munmap resumed> )            = 0
+21543 mmap(0xffeb98b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21548 <... munmap resumed> )            = 0
+21548 munmap(0x7ff1d25b5000, 4096 <unfinished ...>
+21543 <... mmap resumed> )              = 0xffeb98b8000
+21548 <... munmap resumed> )            = 0
+21543 madvise(0xffeb98b8000, 1044480, MADV_NOHUGEPAGE <unfinished ...>
+21548 madvise(0x7ff1c9dfa000, 8368128, MADV_DONTNEED <unfinished ...>
+21543 <... madvise resumed> )           = 0
+21548 <... madvise resumed> )           = 0
+21543 madvise(0xffeb98b8000, 1044480, MADV_DONTDUMP <unfinished ...>
+21548 _exit(0)                          = ?
+21543 <... madvise resumed> )           = 0
+21548 +++ exited with 0 +++
+21544 <... futex resumed> )             = 0
+21543 munmap(0x7ff1d25db000, 110592 <unfinished ...>
+21544 write(1, "Hello, world\n", 13 <unfinished ...>
+21543 <... munmap resumed> )            = 0
+21544 <... write resumed> )             = 13
+21543 munmap(0x7ff1d2629000, 4096 <unfinished ...>
+21544 sigaltstack({ss_sp=0, ss_flags=SS_DISABLE, ss_size=32768} <unfinished ...>
+21543 <... munmap resumed> )            = 0
+21544 <... sigaltstack resumed> , {ss_sp=0x7ff1d2594000, ss_flags=0, ss_size=32768}) = 0
+21543 madvise(0x7ff1cc5ff000, 8368128, MADV_DONTNEED <unfinished ...>
+21544 munmap(0x7ff1d2594000, 32768 <unfinished ...>
+21543 <... madvise resumed> )           = 0
+21544 <... munmap resumed> )            = 0
+21543 _exit(0)                          = ?
+21544 mmap(0xffeb97b8000, 1044480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+21543 +++ exited with 0 +++
+21544 <... mmap resumed> )              = 0xffeb97b8000
+21542 <... futex resumed> )             = 0
+21544 madvise(0xffeb97b8000, 1044480, MADV_NOHUGEPAGE) = 0
+21544 madvise(0xffeb97b8000, 1044480, MADV_DONTDUMP) = 0
+21544 munmap(0x7ff1d25b8000, 110592 <unfinished ...>
+21542 munmap(0x7ff1cb5fd000, 8392704 <unfinished ...>
+21544 <... munmap resumed> )            = 0
+21544 munmap(0x7ff1d2628000, 4096 <unfinished ...>
+21542 <... munmap resumed> )            = 0
+21544 <... munmap resumed> )            = 0
+21542 futex(0x7ff1cc5fe9d0, FUTEX_WAIT, 21544, NULL <unfinished ...>
+21544 madvise(0x7ff1cbdfe000, 8368128, MADV_DONTNEED) = 0
+21544 _exit(0)                          = ?
+21542 <... futex resumed> )             = 0
+21544 +++ exited with 0 +++
+21542 munmap(0x7ff1ca5fb000, 8392704)   = 0
+21542 write(1, "Hello, world\n", 13)    = 13
+21542 gettid()                          = 21542
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2629000
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d2628000
+21542 prctl(PR_GET_DUMPABLE)            = 1
+21542 getpid()                          = 21542
+21542 mmap(NULL, 2101248, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1cbbfd000
+21542 mprotect(0x7ff1cbbfd000, 4096, PROT_NONE) = 0
+21542 rt_sigprocmask(SIG_BLOCK, ~[ILL ABRT BUS FPE SEGV XCPU XFSZ], [], 8) = 0
+21542 clone(child_stack=0x7ff1cbdfdff0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_UNTRACED) = 21549
+21542 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+21542 getpid()                          = 21542
+21542 prctl(PR_SET_PTRACER, 0x542d, 0, 0, 0) = -1 EINVAL (Invalid argument)
+21542 futex(0x7ffd03674bb0, FUTEX_WAKE, 1) = 1
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 sched_yield()                     = 0
+21542 wait4(21549, NULL, __WALL, NULL)  = 21549
+21542 munmap(0x7ff1cbbfd000, 2101248)   = 0
+21542 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff1d25f5000
+21542 munmap(0x7ff1d25f5000, 8)         = 0
+21542 munmap(0x7ff1d2628000, 24)        = 0
+21542 munmap(0x7ff1d2629000, 32)        = 0
+21542 exit_group(0)                     = ?
+21542 +++ exited with 0 +++

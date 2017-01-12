@@ -1,0 +1,25 @@
+12.18:
+
+A. The trajectory is unsafe because L1 causes it to enter the unsafe region.
+B. The trajectory is safe since it doesn't enter the unsafe region.
+C. The trajectory is unsafe because L2 causes it to enter the unsafe region.
+
+12.24:
+
+ssize_t rio_readn(int df, void *usrbuf, size_t n);
+Reentrant because it doesn't use global variables 
+
+ssize_t rio_writen(int fd, void *usrbuf, size_t n);
+Reentrant because it doesn't use global variables 
+
+void rio_readinitb(rio_t *rp, int fd);
+Non-reentrant because it uses a global struct
+
+static ssize_t rio_read(rio_t *rp, char *usrbuf, size_t n);
+Non-reentrant because it has a static return value
+
+ssize_t rio_readlineb(rio_t *rp, void *usrbuf, size_t maxlen);
+Non-reentrant because it uses a global struct
+
+ssize_t rio_readnb(rio_t *rp, void *usrbuf, size_t n);
+Non-reentrant because it uses a global struct

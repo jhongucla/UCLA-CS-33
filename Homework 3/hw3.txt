@@ -1,0 +1,60 @@
+3.67
+A.
+|            | %rsp+104
+|            | %rsp+96
+|            | %rsp+88
+|            | %rsp+80
+|            | %rsp+72
+|            | %rsp+64
+|            | %rsp+56
+|            | %rsp+48
+|            | %rsp+40
+|            | %rsp+32
+|        z   | %rsp+24
+|%rsp+24 (&z)| %rsp+16
+|s.a[1] (y)  | %rsp+8
+|s.a[0] (x)  | %rsp
+
+B.
+eval passes the memory address %rsp+64 to process.
+
+C.
+The code for process accesses the elements of structure argument s by moving the values at %rsp+24, %rsp+16, and %rsp+8 into the registers %rdx and %rcx.
+
+D.
+The code for process sets the fields of result structure r by using the instructions movq %rcx, (%rdi) and movq %rcx, 8(%rdi) and movq %rcx, 16(%rdi) which moves the values onto the stack.
+
+E. 
+|            | %rsp+104
+|            | %rsp+96
+|            | %rsp+88
+|r.q (z)     | %rsp+80
+|r.u[1] (x)  | %rsp+72
+|r.u[0] (y)  | %rsp+64
+|            | %rsp+56
+|            | %rsp+48
+|            | %rsp+40
+|            | %rsp+32
+|        z   | %rsp+24
+|%rsp+24 (&z)| %rsp+16
+|s.a[1] (y)  | %rsp+8
+|s.a[0] (x)  | %rsp
+eval accesses the elements of structure r at %rsp+72, %rsp+64, and %rsp+80 respectively. 
+
+F.
+Structure values are passed as function arguments by using memory addresses referenced from the stack pointer and they are returned in the same fashion. 
+
+3.70
+A. 
+e1.p: 0 bytes
+e1.y: 8 bytes
+e2.x: 0 bytes
+e2.next: 8 bytes
+
+B.
+The structure requires 16 bytes in total.
+
+C.
+void proc (union ele *up) {
+    up->e2.x = *(up->e2.next->e1.p) - up->e2.next->e1.y;
+}
